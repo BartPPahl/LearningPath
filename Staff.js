@@ -8,6 +8,11 @@ class Employee {
   getEmployeeDetails() {
     return `Employee Name: ${this.name}, ID: ${this.id}, Email Address: ${this.emailAddress}`;
   }
+
+
+  getIngredients(){
+    return `The ingredients for the soup are: `;
+    };
 }
 
 const me = new Employee("Bart", "001", "barpahl@publicis.com");
@@ -23,3 +28,14 @@ const employees = [
 for (const team of employees) {
   console.log(team.getEmployeeDetails());
 }
+
+let p1 = new Promise((resolve, reject) => {
+    setTimeout(() => reject(new Error ("Promise1  is rejected after some time")), 3000);
+});
+
+let p2 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Promise2 takes priority"), 200);
+});
+
+p1.then(console.log).catch(console.error);
+p2.then(console.log).catch(console.error);
